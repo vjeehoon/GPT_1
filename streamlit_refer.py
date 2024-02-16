@@ -21,8 +21,8 @@ from langchain.memory import StreamlitChatMessageHistory
 
 def main():
     st.set_page_config(
-    page_title="DirChat",
-    page_icon=":books:")
+    page_title="PoliticianGPT",
+    page_icon="bi bi-backpack2")
 
     st.title("_Politician GPT:Blue[QA Chat]_ :books:")
 
