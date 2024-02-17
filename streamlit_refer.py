@@ -1,6 +1,9 @@
 import streamlit as st
 import tiktoken
+pip install streamlit pdfplumber
 import pdfplumber
+
+
 from loguru import logger
 
 from langchain.chains import ConversationalRetrievalChain
@@ -19,6 +22,8 @@ from langchain.vectorstores import FAISS
 # from streamlit_chat import message
 from langchain.callbacks import get_openai_callback
 from langchain.memory import StreamlitChatMessageHistory
+
+
 def extract_text_from_pdf(pdf_path):
     text = ""
     with pdfplumber.open(pdf_path) as pdf:
