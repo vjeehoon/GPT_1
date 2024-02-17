@@ -5,7 +5,8 @@ unstructured
 sentence-transformers
 faiss-cpu
 tiktoken
-pdfplumber
+streamlit==1.10.0
+pdfplumber==0.5.28
 openai
 pypdf
 loguru
