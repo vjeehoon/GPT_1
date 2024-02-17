@@ -1,5 +1,6 @@
 import streamlit as st
 import tiktoken
+import pdfplumber
 from loguru import logger
 
 from langchain.chains import ConversationalRetrievalChain
@@ -18,6 +19,30 @@ from langchain.vectorstores import FAISS
 # from streamlit_chat import message
 from langchain.callbacks import get_openai_callback
 from langchain.memory import StreamlitChatMessageHistory
+def extract_text_from_pdf(pdf_path):
+    text = ""
+    with pdfplumber.open(pdf_path) as pdf:
+        for page in pdf.pages:
+            text += page.extract_text() or ""
+    return text
+
+def get_text(docs):
+    doc_list = []
+    
+    for doc in docs:
+        file_name = doc.name
+        if '.pdf' in file_name:
+            # 업로드된 파일을 임시 저장
+            with open(file_name, "wb") as file:
+                file.write(doc.getbuffer())
+                logger.info(f"Uploaded {file_name}")
+            # pdfplumber를 사용하여 텍스트 추출
+            extracted_text = extract_text_from_pdf(file_name)
+            doc_list.append(extracted_text)
+        # DOCX, PPTX 등 다른 형식에 대한 처리 로직 추가
+        # 예: elif '.docx' in doc.name: ...
+        
+    return doc_list
 
 def main():
     st.set_page_config(
