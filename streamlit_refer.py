@@ -22,9 +22,9 @@ from langchain.memory import StreamlitChatMessageHistory
 def main():
     st.set_page_config(
     page_title="PoliticianGPT",
-    page_icon="bi bi-backpack2")
+    page_icon=":bi bi-backpack2:")
 
-    st.title("_Politician GPT:Blue[QA Chat]_ :books:")
+    st.title("_Politician GPT :Blue[QA Chat]_ :books:")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
