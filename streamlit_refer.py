@@ -21,10 +21,10 @@ from langchain.memory import StreamlitChatMessageHistory
 
 def main():
     st.set_page_config(
-    page_title="PoliticianGPT",
-    page_icon=":bi bi-backpack2:")
+    page_title="DirChat",
+    page_icon=":books:")
 
-    st.title("_Poly GPT :red[QA Chat]_ :books:")
+    st.title("_Private Data :red[QA Chat]_ :books:")
 
     if "conversation" not in st.session_state:
         st.session_state.conversation = None
@@ -149,6 +149,8 @@ def get_conversation_chain(vetorestore,openai_api_key):
         )
 
     return conversation_chain
+
+
 
 if __name__ == '__main__':
     main()
