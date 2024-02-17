@@ -5,6 +5,7 @@ unstructured
 sentence-transformers
 faiss-cpu
 tiktoken
+pdfplumber
 openai
 pypdf
 loguru
