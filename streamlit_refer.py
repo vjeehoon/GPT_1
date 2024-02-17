@@ -1,7 +1,6 @@
 import streamlit as st
 import tiktoken
-import pdfplumber as st
-
+import pdfplumber
 
 from loguru import logger
 
